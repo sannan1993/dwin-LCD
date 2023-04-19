@@ -12,7 +12,7 @@
 \title{A Beginner's Guide to  Beijing DWIN Technology LCD 
 
 Demo on DMT10768T150\_ 18WT}
-\author{Sannan Ahmed}
+\author{Sannan Ahmed, Ali Harman}
 \date{\today} %\date{August 2022}
 %/////////////////////////////
 
@@ -218,22 +218,37 @@ Insert text display, where you want to show the text. Also insert text input on 
 \newpage
 
 
-\section{How to change font 0 in DGUS}
-In the welcome page of DGUS software (DGUS V5.08), Click "No. 0 font lab" button. to open the software that creates fonts.
-\emph{Note: limitation is that, we can only make single font (in DGUS V5.08). In new version of software we can use Gray font ID and Unicode.}
-
-
+\section{How to use fonts in DGUS}
+The Dwin lcd have 3 types of fonts, which are:
+\begin{itemize}
+\item Zero font ( .HZK)
+\item Gray font (.Bin)
+\item Unicode/ASCII ( .DZK)
+\end{itemize}
+The TL5 Lcd support \textbf{Zero font} and \textbf{Unicode/ASCII} only, where as the TL7 seriese of Lcd support all three type of fonts.
 \begin{figure}[!htb] %[!htb] is used to place image where it is in editor
 	\centering
 	\includegraphics[width=12cm]{fontType} 
 	\caption{Font generation types.\\}
 \end{figure}
+\subsection{Zero Font}
+The 'Zero Font' or '0 word bank ID' is the font that is stored at '0' location in the lcd flash, it is the default font that the lcd will use.Only \emph{one zero font} can be created, more fonts are created using other methods.
+
+In the welcome page of DGUS software (DGUS V5.08), Click "No. 0 font lab" button. to open the software that creates fonts, or run the applicatin PATH "DGUS TOOL V5.10/DW0\_Font" to lanch it.
+
+Select the font type from 'Font Selection' and adjust the different \emph{scale} and \emph{shift} till later are not cliping,(tip: Use a monospace font, it will provide equal spacing, if using manual spacing in setting). Press the "Create" button and the software will start creating the font, after finish the font will be created in "DGUS TOOL V5.10" folder, copy it to your project "DWIN\_Set" Folder.
 \begin{figure}[!htb] %[!htb] is used to place image where it is in editor
 	\centering
-	\includegraphics[width=12cm]{fontGenerator} 
-	\caption{Font generator.\\}
+	\includegraphics[width=12cm]{zero-font} 
+	\caption{Zero Font generator.\\}
 \end{figure}
-
+The setting used for Zero font are shown in the figure.
+\begin{figure}[!htb] %[!htb] is used to place image where it is in editor
+	\centering
+	\includegraphics[width=5cm]{zero-font-config}
+	\caption{Setting for usnig zero font in editorr.\\}
+\end{figure}
+Font ID is '0' for both ASCII and non-ASCII for 'zero font'. Uncheck 'set character interval manually' so that spacing is adjusted automatically (usefull for non-monospace fonts). In 'zero font' \emph{Dot Matrix in X-direction} and \emph{Dot Matrix in Y-direction} can have any value, Y-direction is two times X-direction. In other font type we will see that this is not the case.
 \newpage
 
 \section{How to change page in DGUS}
